@@ -1,0 +1,1 @@
+scr_find_type(my_hover)
