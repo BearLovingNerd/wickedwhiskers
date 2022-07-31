@@ -1,5 +1,6 @@
 function scr_find_type(my_hover)
 {
+	
 	enum type 
 	{
 		town,

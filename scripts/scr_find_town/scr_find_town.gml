@@ -16,6 +16,10 @@ function scr_find_town(my_hover)
 		      resting: restores your HP to full
 	*/
 	
+	// Return control
+	obj_controller.freeze_cntrl = false
+	
+	// Define types
 	enum town_type
 	{
 		nothing,
@@ -27,12 +31,12 @@ function scr_find_town(my_hover)
 	
 	if my_hover.town_type == town_type.nothing
 	{
-		// do nothing!	
+		// do nothing!
 	}
 	
 	if my_hover.town_type == town_type.navigation
 	{
-		room = my_hover.my_room	
+		room = my_hover.my_room
 		exit;
 	}
 }
