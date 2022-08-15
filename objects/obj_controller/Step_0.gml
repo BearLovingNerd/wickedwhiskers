@@ -1,6 +1,6 @@
 
 
-if gamepad_is_connected(pad_index)
+if connected == true
 {
 	if instance_number(obj_selector) < 1
 	{

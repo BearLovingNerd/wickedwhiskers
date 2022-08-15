@@ -1,4 +1,4 @@
-function scr_find_map(my_hover)
+function scr_map_interact(my_hover)
 {
 	
 	// Define types

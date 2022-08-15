@@ -1,18 +1,43 @@
-function scr_generate_hand()
+function scr_generate_hand(hand)
 {
-	var x_offset = 0
-	var timer_offset = 15
 	
-	repeat(obj_controller.atk_speed)
+	// Generate Left Hand
+	if hand == "left"
 	{
-		with instance_create_layer(50 + x_offset, 300, "UI", obj_card)
+		var x_offset = 0
+		var timer_offset = 15
+	
+		repeat(obj_player.l_atk_speed)
 		{
-			value = obj_controller.atk_power[irandom(5)]
-			image_index = value
-			alarm[0] = timer_offset
-		}
+			with instance_create_layer(100 + x_offset, 300, "UI", obj_card)
+			{
+				value = obj_player.l_atk_power[irandom(5)]
+				image_index = value
+				alarm[0] = timer_offset
+			}
 		
-		x_offset += 30
-		timer_offset += 15
+			x_offset += 30
+			timer_offset += 15
+		}
+	}
+	
+	// Generate Right Hand
+	if hand == "right"
+	{
+		var x_offset = 0
+		var timer_offset = 15
+	
+		repeat(obj_player.r_atk_speed)
+		{
+			with instance_create_layer(540 - x_offset, 300, "UI", obj_card)
+			{
+				value = obj_player.r_atk_power[irandom(5)]
+				image_index = value
+				alarm[0] = timer_offset
+			}
+		
+			x_offset += 30
+			timer_offset += 15
+		}
 	}
 }

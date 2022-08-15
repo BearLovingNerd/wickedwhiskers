@@ -1,8 +1,8 @@
 
-image_alpha = 0
+image_alpha = 0.5
 press = false
 
-// set my hover
-my_hover = instance_nearest(x,y,obj_block)
-x = my_hover.x
-y = my_hover.y
+// set my hover to nothing, and place selector in middle of screen
+scr_selector_find("nothing", 0)
+x = room_width/2
+y = room_height/2

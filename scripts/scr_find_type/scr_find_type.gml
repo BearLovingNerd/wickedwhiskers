@@ -1,29 +1,76 @@
-function scr_find_type(my_hover)
+function scr_find_type(my_hover, interaction)
 {
 	
 	enum type 
 	{
+		nothing,
 		town,
 		battle,
 		map,
 	}
 	
+	if my_hover.type == type.nothing
+	{
+		// Do Nothing!!
+		exit;
+	}
+	
 	if my_hover.type == type.town
 	{
-		scr_find_town(my_hover)
-		exit;
+		if interaction == "interact"
+		{
+			scr_town_interact(my_hover)
+			exit;
+		}	
+		else if interaction == "hover activate"
+		{
+			scr_hover_activate(my_hover)
+			exit;
+		}
+		else if interaction == "hover deactivate"
+		{
+			scr_hover_deactivate(my_hover)
+			exit;
+		}
 	}
 	
 	if my_hover.type == type.battle
 	{
-		scr_find_battle(my_hover)
-		exit;
+		if interaction == "interact"
+		{
+			scr_battle_interact(my_hover)
+			exit;
+		}	
+		else if interaction == "hover activate"
+		{
+			scr_hover_activate(my_hover)
+			exit;
+		}
+		else if interaction == "hover deactivate"
+		{
+			scr_hover_deactivate(my_hover)
+			exit;
+		}
 	}
 	
 	if my_hover.type == type.map
 	{
-		scr_find_map(my_hover)
-		exit;
+		if interaction == "interact"
+		{
+			scr_map_interact(my_hover)
+			exit;
+		}	
+		else if interaction == "hover activate"
+		{
+			scr_hover_activate(my_hover)
+			exit;
+		}
+		else if interaction == "hover deactivate"
+		{
+			scr_hover_deactivate(my_hover)
+			exit;
+		}
+		
 	}
 	
 }

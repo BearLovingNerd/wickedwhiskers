@@ -4,39 +4,85 @@ if obj_controller.freeze_cntrl == true
 	exit;	
 }
 
-// use selector find to search in specified direction
-if keyboard_check_pressed(ord("A")) || (gamepad_axis_value(pad_index, gp_axislh) < -.5 && press = false)
+// Keyboard search if no connected controller
+if obj_controller.connected == false
 {
-	scr_selector_find("left", 0)
-}
-if keyboard_check_pressed(ord("D")) || (gamepad_axis_value(pad_index, gp_axislh) > .5 && press = false)
-{
-	scr_selector_find("right", 0)
-}
-if keyboard_check_pressed(ord("W")) || (gamepad_axis_value(pad_index, gp_axislv) < -.5 && press = false)
-{
-	scr_selector_find("up", 0)
-}
-if keyboard_check_pressed(ord("S")) || (gamepad_axis_value(pad_index, gp_axislv) > .5 && press = false)
-{
-	scr_selector_find("down", 0)
-}
-
-// interact with my hover
-if keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(pad_index, gp_face2)
-{
+	if keyboard_check_pressed(ord("A"))
+	{
+		scr_selector_find("left", 0)
+		exit;
+	}
+	if keyboard_check_pressed(ord("D"))
+	{
+		scr_selector_find("right", 0)
+		exit;
+	}
+	if keyboard_check_pressed(ord("W"))
+	{
+		scr_selector_find("up", 0)
+		exit;
+	}
+	if keyboard_check_pressed(ord("S"))
+	{
+		scr_selector_find("down", 0)
+		exit;
+	}
 	
-	scr_find_type(my_hover)
+	// Interact with enter or space key
+	if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)
+	{
+	
+		scr_find_type(my_hover, "interact")
+	}
 }
 
-if gamepad_axis_value(pad_index, gp_axislh) < -.5
-or gamepad_axis_value(pad_index, gp_axislh) > .5
-or gamepad_axis_value(pad_index, gp_axislv) < -.5
-or gamepad_axis_value(pad_index, gp_axislv) > .5
+// Controller search if a controller is connected
+if obj_controller.connected == true
 {
-	press = true	
+	// Directional inputs
+	var gp_h = gamepad_axis_value(obj_controller.pad_index, gp_axislh)
+	var gp_v = gamepad_axis_value(obj_controller.pad_index, gp_axislv)
+	var interact = gamepad_button_check_pressed(obj_controller.pad_index, gp_face2)
+	
+	if gp_h < -.5 && press = false
+	{
+		scr_selector_find("left", 0)
+		press = true
+		exit;
+	}
+	if gp_h > .5 && press = false
+	{
+		scr_selector_find("right", 0)
+		press = true
+		exit;
+	}
+	if gp_v < -.5 && press = false
+	{
+		scr_selector_find("up", 0)
+		press = true
+		exit;
+	}
+	if gp_v > .5 && press = false
+	{
+		scr_selector_find("down", 0)
+		press = true
+		exit;
+	}
+	
+	// Interact with face button
+	if interact
+	{
+		scr_find_type(my_hover, "interact")
+	}
+	
+	// Check if we are pressing stick
+	if gp_h > .5 || gp_h < -.5 || gp_v > .5 || gp_v < -.5
+	{
+		press = true	
+	}
+	else
+	{
+		press = false	
+	}
 }
-else
-{
-	press = false	
-}
+

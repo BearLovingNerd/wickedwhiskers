@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Selector UI scripts",
-    "path": "folders/Scripts/Selector UI scripts.yy",
+    "name": "Battle Scripts",
+    "path": "folders/Scripts/Battle Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_find_map",
+  "name": "scr_stack",
   "tags": [],
   "resourceType": "GMScript",
 }

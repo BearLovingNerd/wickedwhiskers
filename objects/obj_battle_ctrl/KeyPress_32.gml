@@ -1,1 +1,0 @@
-scr_generate_hand()

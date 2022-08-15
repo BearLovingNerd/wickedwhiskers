@@ -37,7 +37,7 @@
     "path": "folders/Objects/Map Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_map_battle_button",
+  "name": "obj_map_battle",
   "tags": [],
   "resourceType": "GMObject",
 }

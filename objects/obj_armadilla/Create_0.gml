@@ -11,4 +11,6 @@ scr_enemy_init(position_chance, id)
 
 type = type.battle
 battle_type = battle_type.enemy
+
 hp = 7
+value = 0

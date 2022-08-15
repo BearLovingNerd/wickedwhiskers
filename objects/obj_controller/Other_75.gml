@@ -1,2 +1,6 @@
 pad_index = async_load[? "pad_index"]
-connected = true
+
+if pad_index != undefined
+{
+	connected = true
+}
