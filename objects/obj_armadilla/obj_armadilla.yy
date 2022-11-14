@@ -1,11 +1,10 @@
 {
   "spriteId": {
-    "name": "spr_armadillo",
-    "path": "sprites/spr_armadillo/spr_armadillo.yy",
+    "name": "Sprite5",
+    "path": "sprites/Sprite5/Sprite5.yy",
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

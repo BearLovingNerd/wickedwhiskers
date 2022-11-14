@@ -1,11 +1,10 @@
 {
   "spriteId": {
-    "name": "spr_selectordot",
-    "path": "sprites/spr_selectordot/spr_selectordot.yy",
+    "name": "spr_selector",
+    "path": "sprites/spr_selector/spr_selector.yy",
   },
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -28,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "master objects",
-    "path": "folders/Objects/master objects.yy",
+    "name": "Wicked Whiskers",
+    "path": "Wicked Whiskers.yyp",
   },
   "resourceVersion": "1.0",
   "name": "obj_selector",

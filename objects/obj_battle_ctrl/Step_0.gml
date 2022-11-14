@@ -1,0 +1,1 @@
+//clamp(deviance,bl_deviance - 15, bl_deviance + 15)

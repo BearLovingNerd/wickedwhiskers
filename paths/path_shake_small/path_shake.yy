@@ -1,0 +1,25 @@
+{
+  "kind": 0,
+  "closed": false,
+  "precision": 4,
+  "points": [
+    {"speed":100.0,"x":319.0,"y":217.0,},
+    {"speed":100.0,"x":295.0,"y":221.0,},
+    {"speed":100.0,"x":341.0,"y":234.0,},
+    {"speed":100.0,"x":317.524658,"y":232.233185,},
+    {"speed":100.0,"x":296.0,"y":231.0,},
+    {"speed":100.0,"x":338.0,"y":221.0,},
+    {"speed":100.0,"x":298.0,"y":212.0,},
+    {"speed":100.0,"x":321.0,"y":207.0,},
+    {"speed":100.0,"x":338.0,"y":213.0,},
+    {"speed":100.0,"x":319.0,"y":218.0,},
+  ],
+  "parent": {
+    "name": "Paths",
+    "path": "folders/Paths.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "path_shake",
+  "tags": [],
+  "resourceType": "GMPath",
+}

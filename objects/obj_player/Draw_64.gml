@@ -1,16 +1,15 @@
 
-var xx = 540
-
-draw_text(xx, 10, gun_name)
-draw_text(xx, 30, crit)
-draw_text(xx, 50, bop)
-draw_text(xx, 70, atk_power)
-
 /*
-draw_text(xx, 10, l_gun_name)
-draw_text(xx, 30, l_atk_speed)
-draw_text(xx, 50, l_atk_power)
+var xx = 20
+var yy = 20
 
-draw_text(xx, 70, r_gun_name)
-draw_text(xx, 90, r_atk_speed)
-draw_text(xx, 110, r_atk_power)
+draw_text(xx, yy, gun_name)
+
+draw_text(xx, yy + 20, "Accuracy:")
+draw_text(xx + 90, yy + 20, accuracy)
+
+draw_text(xx, yy + 40, "Deviance:")
+draw_text(xx + 90, yy + 40, deviance)
+
+draw_text(xx, yy + 60, "Average Hand:")
+draw_text(xx, yy + 80, atk_power)

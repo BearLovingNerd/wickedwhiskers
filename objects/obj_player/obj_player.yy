@@ -2,7 +2,6 @@
   "spriteId": null,
   "solid": false,
   "visible": true,
-  "managed": true,
   "spriteMaskId": null,
   "persistent": true,
   "parentObjectId": null,
@@ -25,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "master objects",
-    "path": "folders/Objects/master objects.yy",
+    "name": "Battle Objects",
+    "path": "folders/Objects/Battle Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_player",

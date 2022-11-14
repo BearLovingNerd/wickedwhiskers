@@ -1,0 +1,1 @@
+obj_battle_ctrl.alarm[1] = 60

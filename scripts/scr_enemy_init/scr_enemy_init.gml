@@ -15,7 +15,7 @@ function scr_enemy_init(position_chance, unit_id)
 	// if spawn_advantage is less than our unit's position chance...
 	if spawn_advantage < position_chance
 	{
-		// Search for empty place to be
+		// Search for empty place in front row
 		var check_frontrow = irandom(2)
 		
 		if obj_battle_ctrl.frontrow[check_frontrow] == 0
@@ -29,7 +29,7 @@ function scr_enemy_init(position_chance, unit_id)
 				with unit_id
 				{
 					x = left
-					y = front
+					y = frontrow
 					layer = layer_get_id("fr_units")
 				}
 			}

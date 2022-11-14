@@ -1,5 +1,5 @@
 
-image_alpha = 0.5
+image_alpha = 0.2
 press = false
 
 // set my hover to nothing, and place selector in middle of screen

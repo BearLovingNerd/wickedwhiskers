@@ -32,7 +32,7 @@ function scr_battle_interact(my_hover)
 	
 	if my_hover.battle_type == battle_type.enemy
 	{
-		scr_stack(my_hover)	
+		scr_stack2(my_hover)	
 	}
 	/*
 	if my_hover.battle_type == battle_type.enemy

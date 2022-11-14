@@ -5,12 +5,14 @@
 // When checking for if an enemy "prefers" front or back, 6 or greater 
 // prefers front row, and 5 or less prefers back row
 
-//position_pref = "front"
-position_chance = 7
-scr_enemy_init(position_chance, id)
+// Position Chance
+scr_enemy_init(7, id)
 
+// Typing
 type = type.battle
 battle_type = battle_type.enemy
 
-hp = 7
+// Normal Variables
+hp = 5
 value = 0
+val_array = []

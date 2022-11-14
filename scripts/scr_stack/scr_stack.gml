@@ -1,202 +1,35 @@
-function scr_stack(my_hover)
+function scr_stack(target)
 {
-	
-	// Battle Position
-	var frontleft   = obj_battle_ctrl.frontrow[0]
-	var frontcenter = obj_battle_ctrl.frontrow[1]
-	var frontright  = obj_battle_ctrl.frontrow[2]
-	
-	var backleft	= obj_battle_ctrl.backrow[0]
-	var backcenter	= obj_battle_ctrl.backrow[1]
-	var backright	= obj_battle_ctrl.backrow[2]
-	
-	// Card Placement
-	var offset		= 15
-	
-	// Player stats
-	var atk_power	= obj_player.atk_power[irandom(5)]
-	var crit		= obj_player.crit
-	
-
-// FRONT ----------------------------------------
-	
-	if my_hover == frontleft
-	{
-		// Create a card and stack it
-		with instance_create_layer(my_hover.x, my_hover.y + 32 + obj_battle_ctrl.frontstack[0], "UI", obj_minicard)
-		{
-			value = atk_power
-			image_index = value	
-		}
-        
-		with my_hover
-		{
-			// Increase enemy stack value
-			value += atk_power
-		
-			// Check enemy value
-			if value == 9
-			{
-				hp -= crit
-				value = 0
-			}
-			else if value > 9
-			{
-				obj_battle_ctrl.bust += 1
-				value = 0
-			}
-		}
-		
-		// Increase battle control offset
-		obj_battle_ctrl.frontstack[0] += offset
+	// Do nothing if we have no shots left
+	if obj_battle_ctrl.bullets_remaining == 0
 		exit;
-	}
 	
-	if my_hover == frontcenter
-	{
-		with instance_create_layer(my_hover.x, my_hover.y + 32 + obj_battle_ctrl.frontstack[1], "UI", obj_minicard)
-		{
-			value = atk_power
-			image_index = value	
-		}
-        
-		with my_hover
-		{
-			// Increase enemy stack value
-			value += atk_power
-		
-			// Check enemy value
-			if value == 9
-			{
-				hp -= crit	
-			}
-			else if value > 9
-			{
-				obj_battle_ctrl.bust += 1	
-			}
-		}
-		
-		// Increase battle control offset
-		obj_battle_ctrl.frontstack[1] += offset
+	// If cards are still reloading
+	if obj_chamber.turning != "stop"
 		exit;
-	}
 	
-	if my_hover == frontright
-	{
-		with instance_create_layer(my_hover.x, my_hover.y + 32 + obj_battle_ctrl.frontstack[2], "UI", obj_minicard)
-		{
-			value = atk_power
-			image_index = value	
-		}
-        
-		with my_hover
-		{
-			// Increase enemy stack value
-			value += atk_power
-		
-			// Check enemy value
-			if value == 9
-			{
-				hp -= crit	
-			}
-			else if value > 9
-			{
-				obj_battle_ctrl.bust += 1	
-			}
-		}
-		
-		// Increase battle control offset
-		obj_battle_ctrl.frontstack[2] += offset
-		exit;
-	}
+	// Iterate through available number
+	var card_used = irandom(obj_battle_ctrl.bullets_remaining-1)
 	
-
-// BACK -------------------------------------------
-	
-	if my_hover == backleft
+	with obj_battle_ctrl.chamber_numbers[card_used]
 	{
-		with instance_create_layer(my_hover.x, my_hover.y + 32 + obj_battle_ctrl.frontstack[0], "UI", obj_minicard)
-		{
-			value = atk_power
-			image_index = value	
-		}
-        
-		with my_hover
-		{
-			// Increase enemy stack value
-			value += atk_power
+		// Move card down and remove it from the array
+		path_start(path_down, 8, path_action_stop, false)
+		with my_num
+			path_start(path_down, 10, path_action_stop, false)
+		array_delete(obj_battle_ctrl.chamber_numbers, card_used, 1)
+			
+		// Remove a bullet from the chamber
+		obj_battle_ctrl.bullets_remaining -= 1
+			
+		// Adjust chamber image to rotate and display less bullets
+		scr_rotate_60()
 		
-			// Check enemy value
-			if value == 9
-			{
-				hp -= crit	
-			}
-			else if value > 9
-			{
-				obj_battle_ctrl.bust += 1	
-			}
-		}
-		
-		// Increase battle control offset
-		obj_battle_ctrl.backstack[0] += offset
-		exit;
-	}
-
-	if my_hover == backcenter
-	{
-		with instance_create_layer(my_hover.x, my_hover.y + 32 + obj_battle_ctrl.backstack[1], "UI", obj_minicard)
+		// Add value to enemy
+		with target.value_counter
 		{
-			value = atk_power
-			image_index = value	
+			target_value += other.my_num.image_index
+			scr_check_value(target, other.my_num.image_index)
 		}
-        
-		with my_hover
-		{
-			// Increase enemy stack value
-			value += atk_power
-		
-			// Check enemy value
-			if value == 9
-			{
-				hp -= crit	
-			}
-			else if value > 9
-			{
-				obj_battle_ctrl.bust += 1	
-			}
-		}
-		
-		// Increase battle control offset
-		obj_battle_ctrl.backstack[1] += offset
-		exit;
-	}
-	
-	if my_hover == backright
-	{
-		with instance_create_layer(my_hover.x, my_hover.y + 32 + obj_battle_ctrl.backstack[2], "UI", obj_minicard)
-		{
-			value = atk_power
-			image_index = value	
-		}
-        
-		with my_hover
-		{
-			// Increase enemy stack value
-			value += atk_power
-		
-			// Check enemy value
-			if value == 9
-			{
-				hp -= crit	
-			}
-			else if value > 9
-			{
-				obj_battle_ctrl.bust += 1	
-			}
-		}
-		
-		// Increase battle control offset
-		obj_battle_ctrl.backstack[2] += offset
-		exit;
 	}
 }
