@@ -3,9 +3,11 @@ function scr_deselect()
 	// This deselects all other spells
 	with obj_spell
 	{
-		
 		if flip != "nothing"
-			exit;	
+			exit;
+		
+		if path_index > 0
+			exit;
 		
 		if(selected == true)
 		{

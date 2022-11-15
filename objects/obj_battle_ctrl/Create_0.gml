@@ -2,7 +2,6 @@
 // Obtain stats from player
 gun_name	= obj_player.gun_name
 cost		= obj_player.cost
-cost_ante	= cost
 draws_used	= 0
 bust		= obj_player.bust
 crit		= obj_player.crit

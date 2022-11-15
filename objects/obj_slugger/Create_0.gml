@@ -1,4 +1,7 @@
 
+
+attack_damage = 3
+
 hp_counter = instance_create_layer(x - 170, y - 125, "UI", obj_health)
 
 with hp_counter.my_num
